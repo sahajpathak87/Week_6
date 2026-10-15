@@ -1,0 +1,271 @@
+/* ---------- Tokens ---------- */
+:root {
+  --ice: #eef2f5;
+  --slate: #1f2a3a;
+  --slate-soft: #dfe7ee;
+  --saffron: #e59f2f;
+  --saffron-dark: #c9851a;
+  --muted: #5a6877;
+  --white: #ffffff;
+
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--body);
+  font-size: 16px;
+  color: var(--slate);
+  background: var(--ice);
+  padding: 14px 16px 56px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 10px 10px 24px;
+  background: var(--slate);
+  border-radius: 999px;
+}
+
+.logo img {
+  display: block;
+  height: 34px;
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a,
+.dropdown a {
+  color: var(--slate-soft);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.nav-links a:hover,
+.dropdown a:hover {
+  color: var(--saffron);
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 42px;
+  height: 42px;
+  background: var(--saffron);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--slate);
+  border-radius: 2px;
+}
+
+.menu-btn:hover {
+  background: var(--saffron-dark);
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 10;
+  min-width: 200px;
+  list-style: none;
+  padding: 10px;
+  background: var(--slate);
+  border-radius: 20px;
+}
+
+.dropdown.open {
+  display: block;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.dropdown a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  max-width: 1200px;
+  margin: 48px auto 28px;
+}
+
+.intro h1 {
+  font-family: var(--display);
+  font-size: clamp(30px, 4.5vw, 46px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.intro p {
+  max-width: 52ch;
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ---------- Cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.thumb {
+  position: relative;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.countdown {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 6px 12px;
+  background: var(--saffron);
+  color: var(--slate);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 22px 22px;
+}
+
+.card h2 {
+  font-family: var(--display);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 12px;
+}
+
+.meta span {
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--ice);
+  border-radius: 999px;
+}
+
+.text,
+.extra {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.extra {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.view-btn {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 10px 20px;
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--slate);
+  background: var(--saffron);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: var(--saffron-dark);
+}
+
+.text {
+  margin-bottom: 18px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-links {
+    display: none;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    margin-top: 32px;
+  }
+}
